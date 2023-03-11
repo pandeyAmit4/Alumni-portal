@@ -1,0 +1,36 @@
+-Feed
+    -add tags to post
+-Saved
+    -search post by tags
+-Hashtag(in saved and feed)
+    -make hashtag model
+    -say #x
+    -make array of postid's who belong to #x
+
+connect usercard in community to messages
+notifications
+delete account
+add socket.io
+profile edit details
+cleanup
+pwa learn
+docker learn
+
+
+--ISSUES to see --
+
+on refresh only post gets posted
+
+on edit like/bookmark dp disappears  
+
+edit profile fixed 
+    -check community page after this
+
+viewothersposts not called
+
+this page below can show more posts by same owner
+
+TODO -> at the end
+
+link images/username of user to their profile page ->redirect to ../profile/username
+
