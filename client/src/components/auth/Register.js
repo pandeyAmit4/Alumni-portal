@@ -193,7 +193,7 @@ const Register = () => {
                                 Login
                             </a>
                         </span>
-                        <span style={{ color: "grey" }}>
+                        {/* <span style={{ color: "grey" }}>
                             Didnt get verification link?
                         </span>
                         <span>
@@ -203,7 +203,7 @@ const Register = () => {
                             >
                                 Send Verification Link
                             </a>
-                        </span>
+                        </span> */}
                     </div>
                 </div>
             </div>

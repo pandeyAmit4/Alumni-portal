@@ -74,28 +74,28 @@ const Conversation = ({ convoid, user, currentUser }) => {
         scrollRef.current?.scrollIntoView({ behaviour: "smooth" });
     }, [messages]);
     return (
-        <div>
-            <h1>{convoid}</h1>
-            <div className="chat-message" ref={scrollRef}>
-                {messages.length !== 0 ? (
-                    messages.map((x) => <div>{x.text}</div>)
-                ) : (
-                    <div>No messages so far start chatting!</div>
-                )}
-            </div>
-            <form>
-                <input
-                    type="text"
-                    name="chat"
-                    placeholder="Send text"
-                    onChange={(e) => setMessage(e.target.value)}
-                    value={message}
-                ></input>
-                <button type="submit" onClick={handleMessageSubmit}>
-                    Send
-                </button>
-            </form>
+      <div>
+        <h1 style={{ display: "none" }}>{convoid}</h1>
+        <div className="chat-message" ref={scrollRef}>
+          {messages.length !== 0 ? (
+            messages.map((x) => <div>{x.text}</div>)
+          ) : (
+            <div>No messages so far start chatting!</div>
+          )}
         </div>
+        <form className="chatInputForm">
+          <input
+            type="text"
+            name="chat"
+            placeholder="Send text"
+            onChange={(e) => setMessage(e.target.value)}
+            value={message}
+          ></input>
+          <button type="submit" onClick={handleMessageSubmit}>
+            Send
+          </button>
+        </form>
+      </div>
     );
 };
 

@@ -1,77 +1,107 @@
 .chat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  .left-nav {
+    margin: 5rem;
+    @media (max-width: 680px) {
+      margin: 2rem;
+    }
+  }
+  .right-side {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    .left-nav {
-        margin: 5rem;
+    flex: 2;
+    margin-left: 3.8rem;
+    @media (max-width: 680px) {
+      margin-left: 0.8rem;
     }
-    .right-side {
+    .left-column {
+      display: flex;
+      flex-direction: column;
+      background-color: #3c748d;
+      input {
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border: 2px solid #5a8f64;
+        height: 30px;
+      }
+      button {
+        background-color: pink;
+        margin-top: 0.25rem;
+        font-size: 1rem;
+      }
+    }
+    .right-column {
+      width: 100%;
+      .curr-user-selected {
+        background-color: #2d5465;
+        text-align: center;
+        padding: 2px 0;
+        span {
+          display: inline-block;
+          padding: 4px 20px;
+          color: white;
+          border: 1px solid #00f6ff;
+          border-radius: 10px;
+        }
+      }
+      .chat-box {
         display: flex;
-        flex-direction: row;
-        height: 100vh;
-        margin-left: 3.8rem;
-        .left-column {
-            display: flex;
-            flex-direction: column;
-            background-color: red;
-            input {
-                padding: 1rem;
-                margin-bottom: 2rem;
-            }
-            button {
-                background-color: pink;
-                margin-top:0.25rem;
-                font-size: 1rem;
-            }
+        flex-direction: column;
+        position: relative;
+        flex-wrap: wrap;
+        background-color: #2d5465;
+        // height: 410px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        .chat-username {
+          margin-right: 1rem;
+          margin-left: 1rem;
+          margin-top: 1rem;
+          background-color: green;
         }
-        .right-column {
-            background-color: blue;
-            .curr-user-selected {
-                background-color: grey;
-            }
-            .chat-box {
-                display: flex;
-                flex-direction: column;
-                position: relative;
-                flex-wrap: wrap;
-                background-color: green;
-                height: 410px;
-                overflow-x: hidden;
-                overflow-y: auto;
-                .chat-username {
-                    margin-right: 1rem;
-                    margin-left: 1rem;
-                    margin-top: 1rem;
-                    background-color: green;
-                }
-                .chat-message {
-                    margin-right: 1rem;
-                    margin-left: 1rem;
-                    padding: 1rem;
-                    word-wrap: break-word;
-                    white-space: pre-wrap;
-                    word-break: break-word;
-                    background-color: yellow;
-                }
-                input {
-                    position: fixed;
-                    padding: 1rem;
-                    bottom: 0;
-                    width: 50%;
-                }
-                button {
-                    position: fixed;
-                    padding: 1rem;
-                    bottom: 0;
-                    right: 0;
-                    margin: 1rem;
-                    width: 10%;
-                }
-            }
-            input {
-                margin: 1rem;
-                // padding: 1.5rem;
-            }
+        .chat-message {
+          margin-right: 1rem;
+          margin-left: 1rem;
+          padding: 1rem;
+          background-color: #00f6ff;
+          height: calc(100vh - 150px);
+          overflow: scroll;
+          @media (min-width: 680px) {
+            min-width: 500px;
+          }
         }
+        input {
+          // position: fixed;
+          padding: 1rem;
+          bottom: 0;
+          width: 50%;
+          height: 35px;
+          width: calc(100% - 145px);
+        }
+        button {
+          // position: fixed;
+          margin: 1rem;
+          background: #00f6ff;
+          padding: 6px 10px;
+          color: #2d5465;
+          width: 80px;
+        }
+      }
+      .chatInputForm {
+        @media (max-width: 680px) {
+          background: #3c748d;
+          border-radius: 7px;
+          position: fixed;
+          right: 0;
+          width: calc(100% - 54px);
+        }
+      }
+      input {
+        margin: 1rem;
+        // padding: 1.5rem;
+      }
     }
+  }
 }

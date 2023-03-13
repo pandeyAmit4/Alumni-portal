@@ -42,6 +42,7 @@ const Messages = () => {
                 // console.log("getuserrr");
                 // console.log(result.data.data);
                 setUser(result.data.data);
+                // console.log(result)
             })
             .catch((err) => console.log(err));
     }, []);
@@ -114,118 +115,108 @@ const Messages = () => {
     };
 
     return (
-        <div className="chat">
-            <div className="left-nav">
-                <Nav />
-            </div>
-
-            <div className="right-side">
-                <div className="left-column">
-                    <input
-                        type="text"
-                        placeholder="Search Name"
-                        onChange={searchUserFunc}
-                    ></input>
-
-                    {filterUsers.length !== 0
-                        ? filterUsers.map((x) => (
-                              <button
-                                  onClick={() => {
-                                      setCurrentUser(x);
-                                      //addconvo only if no convo
-                                      axios({
-                                          method: "post",
-                                          url: "/api/convo/postconvo",
-                                          data: {
-                                              senderid: user._id,
-                                              receiverid: x._id,
-                                          },
-                                          headers: {
-                                              "Content-type":
-                                                  "application/json",
-                                              "x-auth-token": `${localStorage.getItem(
-                                                  TOKEN_ID
-                                              )}`,
-                                          },
-                                      })
-                                          .then((result) => {
-                                              if (result.data.success) {
-                                                  if (result.data.status == 1)
-                                                      setConversations([
-                                                          ...conversations,
-                                                          result.data.data,
-                                                      ]);
-
-                                                  setConversationid(
-                                                      result.data.data._id
-                                                  );
-                                              }
-                                          })
-                                          .catch((err) => console.log(err));
-                                  }}
-                              >
-                                  {x.username}
-                              </button>
-                          ))
-                        : conversations.map((x) => (
-                              <button
-                                  onClick={() => {
-                                      setCurrentUser(x.receiver);
-                                      axios({
-                                          method: "post",
-                                          url: "/api/convo/postconvo",
-                                          data: {
-                                              senderid: user._id,
-                                              receiverid: x.receiver._id,
-                                          },
-                                          headers: {
-                                              "Content-type":
-                                                  "application/json",
-                                              "x-auth-token": `${localStorage.getItem(
-                                                  TOKEN_ID
-                                              )}`,
-                                          },
-                                      })
-                                          .then((result) => {
-                                              //   console.log(
-                                              //       "serrrrrrrrrrrrrrrrrrrrrrrtttttt"
-                                              //   );
-                                              //   console.log(result.data);
-                                              if (result.data.success) {
-                                                  if (result.data.status == 1)
-                                                      setConversations([
-                                                          ...conversations,
-                                                          result.data.data,
-                                                      ]);
-
-                                                  setConversationid(
-                                                      result.data.data._id
-                                                  );
-                                              }
-                                          })
-                                          .catch((err) => console.log(err));
-                                  }}
-                              >
-                                  {x.receiver.username}
-                              </button>
-                          ))}
-                </div>
-
-                <form className="right-column">
-                    <div className="curr-user-selected">
-                        {currentUser.username}
-                    </div>
-
-                    <div className="chat-box">
-                        <Conversation
-                            convoid={conversationid}
-                            user={user}
-                            currentUser={currentUser}
-                        />
-                    </div>
-                </form>
-            </div>
+      <div className="chat">
+        <div className="left-nav">
+          <Nav />
         </div>
+
+        <div className="right-side">
+          <div className="left-column">
+            <input
+              type="text"
+              placeholder="Search Name"
+              onChange={searchUserFunc}
+            ></input>
+
+            {filterUsers.length !== 0
+              ? filterUsers.map((x) => (
+                  <button
+                    onClick={() => {
+                      setCurrentUser(x);
+                      //addconvo only if no convo
+                      axios({
+                        method: "post",
+                        url: "/api/convo/postconvo",
+                        data: {
+                          senderid: user._id,
+                          receiverid: x._id,
+                        },
+                        headers: {
+                          "Content-type": "application/json",
+                          "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+                        },
+                      })
+                        .then((result) => {
+                          if (result.data.success) {
+                            if (result.data.status == 1)
+                              setConversations([
+                                ...conversations,
+                                result.data.data,
+                              ]);
+
+                            setConversationid(result.data.data._id);
+                          }
+                        })
+                        .catch((err) => console.log(err));
+                    }}
+                  >
+                    {x.username}
+                  </button>
+                ))
+              : conversations.map((x) => (
+                  <button
+                    onClick={() => {
+                      setCurrentUser(x.receiver);
+                      axios({
+                        method: "post",
+                        url: "/api/convo/postconvo",
+                        data: {
+                          senderid: user._id,
+                          receiverid: x.receiver._id,
+                        },
+                        headers: {
+                          "Content-type": "application/json",
+                          "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+                        },
+                      })
+                        .then((result) => {
+                          //   console.log(
+                          //       "serrrrrrrrrrrrrrrrrrrrrrrtttttt"
+                          //   );
+                          //   console.log(result.data);
+                          if (result.data.success) {
+                            if (result.data.status == 1)
+                              setConversations([
+                                ...conversations,
+                                result.data.data,
+                              ]);
+
+                            setConversationid(result.data.data._id);
+                          }
+                        })
+                        .catch((err) => console.log(err));
+                    }}
+                  >
+                    {x.receiver.username}
+                  </button>
+                ))}
+          </div>
+
+          <form className="right-column">
+            <div className="curr-user-selected">
+              <span>{currentUser.username}</span>
+            </div>
+
+            <div className="chat-box">
+              <Conversation
+                convoid={conversationid}
+                user={user}
+                currentUser={currentUser}
+              />
+            </div>
+          </form>
+        </div>
+      </div>
     );
 };
 

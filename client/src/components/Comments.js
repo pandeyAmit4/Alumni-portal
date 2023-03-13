@@ -40,28 +40,25 @@ const Comments = ({ post_id, owner }) => {
     }, []);
 
     return (
-        <div>
-            <CreateComment post_id={post_id} addComment={addComment} />
-            {comments.map((comment) => (
-                <div className="comment">
-                    <div className="comment-left">
-                        {comment.owner.profileImage !== "" ? (
-                            <img
-                                src={comment.owner.profileImage}
-                                className="img-user"
-                            />
-                        ) : (
-                            <img src={MyPhoto} className="img-user" />
-                        )}
-                    </div>
+      <div>
+        <CreateComment post_id={post_id} addComment={addComment} />
+        {comments.map((comment) => (
+          <div className="comment">
+            <div className="comment-left">
+              {comment && comment.owner && comment.owner.profileImage !== "" ? (
+                <img src={comment.owner.profileImage} className="img-user" />
+              ) : (
+                <img src={MyPhoto} className="img-user" />
+              )}
+            </div>
 
-                    <div className="comment-right">
-                        <b>{comment.owner.username}</b>
-                        <div>{comment.answer}</div>
-                    </div>
-                </div>
-            ))}
-        </div>
+            <div className="comment-right">
+              <b>{comment.owner.username}</b>
+              <div>{comment.answer}</div>
+            </div>
+          </div>
+        ))}
+      </div>
     );
 };
 

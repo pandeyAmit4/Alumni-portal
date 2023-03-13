@@ -7,8 +7,8 @@ export const lottieOptions = (animation, loop = true) => ({
 });
 
 export const storeFile = async (folderNname, fileName, file) => {
-    console.log("file");
-    console.log(file);
+    // console.log("file");
+    // console.log(file);
     const storageRef = storage.ref();
     const folderRef = storageRef.child(folderNname);
     const fileRef = folderRef.child(fileName);
@@ -22,9 +22,9 @@ export const storeFile = async (folderNname, fileName, file) => {
 
 export const minsAgo = (date) => {
     var diff = parseInt((Date.now() - date) / (1000 * 60));
-    console.log("date.now", Date.now());
-    console.log("date", date);
-    console.log("subtract:", Date.now() - date);
+    // console.log("date.now", Date.now());
+    // console.log("date", date);
+    // console.log("subtract:", Date.now() - date);
     var text = " m ago";
     if (diff >= 120) {
         diff = 120;

@@ -143,14 +143,14 @@ const Post = ({
     };
 
     return (
-      <div class="post">
+      <div className="post">
         <Modal
           open={open}
           onClose={() => {
             setOpen(false);
           }}
         >
-          <div class="modal">
+          <div className="modal">
             <div className="modal-left">
               <div className="creator-img">
                 {owner && owner.profileImage != "" ? (
@@ -180,7 +180,7 @@ const Post = ({
           )}
         </div>
 
-        <div class="post-body ">
+        <div className="post-body ">
           <h6>
             {owner && owner.username} . {minsAgo(currentDate)}
           </h6>
@@ -201,7 +201,7 @@ const Post = ({
                     margin: "1rem",
                     color: "red",
                   }}
-                  class="fas fa-heart "
+                  className="fas fa-heart "
                   onClick={editLike}
                 ></span>
                 <span>{likedArray.length}</span>
@@ -217,7 +217,7 @@ const Post = ({
                     margin: "1rem",
                   }}
                   onClick={editLike}
-                  class="far fa-heart "
+                  className="far fa-heart "
                 ></span>
                 <span>{likedArray.length}</span>
               </span>
@@ -231,7 +231,7 @@ const Post = ({
                   margin: "1rem",
                   color: "grey",
                 }}
-                class="fas fa-bookmark"
+                className="fas fa-bookmark"
                 onClick={editBookmark}
               ></span>
             ) : (
@@ -242,7 +242,7 @@ const Post = ({
                   backgroundColor: "#dbe0ee",
                   margin: "1rem",
                 }}
-                class="far fa-bookmark "
+                className="far fa-bookmark "
                 onClick={editBookmark}
               ></div>
             )}
@@ -259,7 +259,7 @@ const Post = ({
                   margin: "1rem",
                   color: "grey",
                 }}
-                class="fas fa-comment "
+                className="fas fa-comment "
               ></div>
             ) : (
               <div
@@ -272,7 +272,7 @@ const Post = ({
                   backgroundColor: "#dbe0ee",
                   margin: "1rem",
                 }}
-                class="far fa-comment "
+                className="far fa-comment "
               ></div>
             )}
 
@@ -288,7 +288,7 @@ const Post = ({
                       margin: "1rem",
                       color: "grey",
                     }}
-                    class="fas fa-trash "
+                    className="fas fa-trash "
                   ></div>
                 ) : null
               ) : (
@@ -301,7 +301,7 @@ const Post = ({
                     margin: "1rem",
                     color: "grey",
                   }}
-                  class="fas fa-trash "
+                  className="fas fa-trash "
                 ></div>
               )
             ) : (
