@@ -27,6 +27,7 @@ const Comments = ({ post_id, owner }) => {
                 console.log("pls work");
                 if (result.data.success) {
                     setComments(...comments, result.data.data);
+                    // console.log(comments)
                 } else {
                     console.log("ayo");
                 }
@@ -53,7 +54,7 @@ const Comments = ({ post_id, owner }) => {
             </div>
 
             <div className="comment-right">
-              <b>{comment.owner.username}</b>
+              {/* <b>{comment.owner.username}</b> */}
               <div>{comment.answer}</div>
             </div>
           </div>

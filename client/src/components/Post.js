@@ -8,6 +8,7 @@ import { Modal } from "react-responsive-modal";
 import { useParams, useHistory } from "react-router-dom";
 import MyPhoto from "../images/me.jpg";
 import { minsAgo } from "../utils/utilities";
+import toast, { Toaster } from "react-hot-toast";
 
 const Post = ({
     imageLink,
@@ -132,18 +133,19 @@ const Post = ({
                 "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
             },
         }).then((result) => {
-            console.log(result.data);
+            // console.log('deleted',result.data);
             if (result.data.success) {
                 console.log("deleted");
                 deletePost(post_id);
             } else {
-                console.log("cannot del post");
+                toast.error("Server Error, cannot del post");
             }
         });
     };
 
     return (
       <div className="post">
+        <Toaster position="center-top" reverseOrder={false} />
         <Modal
           open={open}
           onClose={() => {
@@ -160,7 +162,7 @@ const Post = ({
                 )}
               </div>
               {question}
-              <img src={imageLink}></img>
+              {/* <img src={imageLink}></img> */}
             </div>
             <div className="modal-right">
               <Comments

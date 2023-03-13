@@ -127,6 +127,7 @@ const Profile = () => {
   };
   return (
     <div className="feed">
+      <Toaster position="center-top" reverseOrder={false} />
       <div className="left-feed">
         <Nav />
       </div>
@@ -153,16 +154,9 @@ const Profile = () => {
                 />
                 <br />
                 <button
+                  className="btn"
                   type="submit"
                   onClick={handleUploadImage}
-                  style={{
-                    borderRadius: "0.25rem",
-                    backgroundColor: "#fec737",
-                    fontWeight: "bold",
-                    padding: "0.5rem",
-                    margin: "1rem 0rem 1rem 0rem",
-                    textAlign: "center",
-                  }}
                 >
                   <i className="fas fa-edit"> Submit New Pic</i>
                 </button>
@@ -201,7 +195,7 @@ const Profile = () => {
         }}
       >
         <form className="popupForm">
-         <h3>Update Profile</h3>
+          <h3>Update Profile</h3>
           <div className="form-group">
             <input
               style={{
@@ -290,19 +284,7 @@ const Profile = () => {
               value={auth.user.yearsOfExp}
             ></input>
           </div>
-          <button
-            type="submit"
-            style={{
-              borderRadius: "0.25rem",
-              backgroundColor: "#fec737",
-              fontWeight: "bold",
-              padding: "0.5rem",
-              margin: "1rem 0rem 1rem 0rem",
-              textAlign: "center",
-              fontSize: "1rem",
-            }}
-            onClick={handleSubmit}
-          >
+          <button className="btn" type="submit" onClick={handleSubmit}>
             Save Profile
           </button>
         </form>

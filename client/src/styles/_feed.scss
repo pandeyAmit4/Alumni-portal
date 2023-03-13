@@ -30,8 +30,10 @@
       top: 0;
       font-size: 2rem;
       font-weight: bold;
-      background-color: white;
+      background-color: #00238c;
       z-index: 1000;
+      text-align: center;
+      color: white;
     }
     width: 50vw;
     display: flex;
@@ -80,7 +82,12 @@
 }
 
 .admin {
-  height: 100vh;
+    border: 2px solid lightblue;
+  .header {
+    text-align: center;
+    background: #00238c;
+    color: white;
+  }
   .sticky {
     position: sticky;
     display: block;
@@ -99,19 +106,27 @@
   }
   .bottom {
     margin: 1rem;
+    // border-left: 3px solid lightgray;
+    // padding-left: 10px;
     .verify1 {
       .name {
         font-size: 1rem;
       }
       .btn1 {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         background-color: green;
         margin: 0.1rem;
+        padding: 4px;
+        color: white;
+        font-weight: bold;
       }
       .btn2 {
-        font-size: 0.5rem;
+        font-size: 0.7rem;
         background-color: red;
         margin: 0.1rem;
+        padding: 4px;
+        color: white;
+        font-weight: bold;
       }
     }
   }
